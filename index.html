@@ -28,7 +28,7 @@
 	      <th data-field="Hasta dónde enviás (en kms a la redonda)" data-sortable="true">Hasta dónde enviás (en kms a la redonda)</th>
 	      <th data-field="Nombre y apellido de un contacto" data-sortable="true">Nombre y apellido de un contacto</th>
 	      <th data-field="Apellido" data-sortable="true">Apellido</th>
-	      <th data-field="WhatsApp de contacto" data-sortable="true">WhatsApp de contacto</th>
+	      <th data-field="WhatsApp de contacto" data-formatter="WasapFormatter">WhatsApp de contacto</th>
 	      <th data-field="Dirección" data-sortable="true">Dirección</th>
 	      <th data-field="Especialidad de envío" data-sortable="true">Especialidad de envío</th>
 	      <th data-field="Web o red social donde querés que se dirijan tus clientes" data-sortable="true">Web o red social donde querés que se dirijan tus clientes</th> 
@@ -36,6 +36,13 @@
 	    </tr>
 	  </thead>
 	</table>
+
+	<script>
+		function WasapFormatter(value) {
+			return "<a target='_blank' href='https://api.whatsapp.com/send?phone=" + value + "'><img src='assets/wsp.png' style='margin:0 auto;'></a>"
+		}
+	</script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
