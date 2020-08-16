@@ -19,6 +19,7 @@
 	  data-url="locales.json">
 	  <thead>
 	    <tr>
+	      <th data-field="Logo" data-formatter="LogoFormatter">Logo</th>
 	      <th data-field="Nombre de tu comercio" data-sortable="true">Nombre de tu comercio</th>
 	      <th data-field="País" data-sortable="true">País</th>
 	      <th data-field="Provincia" data-sortable="true">Provincia</th>
@@ -31,7 +32,7 @@
 	      <th data-field="WhatsApp de contacto" data-formatter="WasapFormatter">WhatsApp de contacto</th>
 	      <th data-field="Dirección" data-sortable="true">Dirección</th>
 	      <th data-field="Especialidad de envío" data-sortable="true">Especialidad de envío</th>
-	      <th data-field="Web o red social donde querés que se dirijan tus clientes" data-sortable="true">Web o red social donde querés que se dirijan tus clientes</th> 
+	      <th data-field="Web o red social donde querés que se dirijan tus clientes" data-formatter="LinkFormatter">Web o red social donde querés que se dirijan tus clientes</th> 
 	      <th data-field="Dirección de correo electrónico" data-sortable="true">Dirección de correo electrónico</th>
 	    </tr>
 	  </thead>
@@ -40,6 +41,12 @@
 	<script>
 		function WasapFormatter(value) {
 			return "<a target='_blank' href='https://api.whatsapp.com/send?phone=" + value + "'><img src='assets/wsp.png' style='margin:0 auto;'></a>"
+		}
+		function LinkFormatter(value, row) {
+			return "<a target='_blank' href='" + value + "' target='_blank'>" + row["Nombre de tu comercio"] + "</a>"
+		}
+		function LogoFormatter(value, row) {
+			return "<a target='_blank' href='" + row["Web o red social donde querés que se dirijan tus clientes"] + "'><img src='assets/" + value + "' class='logo'></a>"
 		}
 	</script>
 
